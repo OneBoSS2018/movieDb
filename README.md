@@ -14,7 +14,7 @@ a separate film. Save the list of such movies locally (localStorage,
 example). Predict the list of selected movies somewhere in the application and
 delete from favorites. Also provide a display on the card with the movie and him
 information page that this movie has been added to favorites.
-
+Heroku(https://moviedbmk.herokuapp.com/)
 
 
 # Getting Started with Create React App
