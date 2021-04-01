@@ -1,3 +1,22 @@
+Tech: React,React-router,js,html,css.
+
+When you start the application, a list of popular movies with pagination should be displayed
+or dynamic loading (optional). Also on the page there should be a field for
+search. When you enter a text there, the movies that appear to it should be displayed
+meet. For each film, a list of genres should be displayed in the list
+(names of genres, not idiots) to which it belongs.
+
+When you click on the movie card, a page with detailed information should be displayed
+about this film and a list of recommended (similar) films to it.
+
+Also implement the ability to add movies to favorites both from the list and on the page with
+a separate film. Save the list of such movies locally (localStorage,
+example). Predict the list of selected movies somewhere in the application and
+delete from favorites. Also provide a display on the card with the movie and him
+information page that this movie has been added to favorites.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
