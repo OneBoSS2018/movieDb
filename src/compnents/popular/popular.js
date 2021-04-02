@@ -14,7 +14,7 @@ export function CurrentGenre(props) {
     const FullGenry = GenreList()
     let full = []
 
-asd    for(let i=0;i<FullGenry.length;i++){
+   for(let i=0;i<FullGenry.length;i++){
         props.genre_ids.forEach(id =>{
                 if (FullGenry[i].id === id){
                     full.push(FullGenry[i].name)
