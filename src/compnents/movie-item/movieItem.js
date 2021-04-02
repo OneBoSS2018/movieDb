@@ -30,7 +30,6 @@ export  default function MovieItem({ide, rec, setRec}){
         fetch(`https://api.themoviedb.org/3/search/movie?query=${ide.params.id}&api_key=${apiKey}`)
             .then(res => res.json())
             .then(res => {
-                console.log(res.results[0])
                 setItem(res.results[0])
             })
             .catch(error => console.log(error))
@@ -38,11 +37,10 @@ export  default function MovieItem({ide, rec, setRec}){
 
     let arr = SimilarMovie(item.id)
 
-    console.log(item)
     const checkUserid = obj => obj.id === item.id;
     return (
         <>
-            <div style={{"margin-top": "20px" }}></div>
+            <div style={{"marginTop": "20px" }}></div>
                 <div className='infoDiv' >
                     <div className='infoImg'>
                         <img  src={`https://www.themoviedb.org/t/p/original${item.poster_path}`} alt=''/>
