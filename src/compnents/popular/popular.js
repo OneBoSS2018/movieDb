@@ -13,7 +13,8 @@ export const apiKey = '884fb462c33685921cb1b2e54ca679f7'
 export function CurrentGenre(props) {
     const FullGenry = GenreList()
     let full = []
-    for(let i=0;i<FullGenry.length;i++){
+
+asd    for(let i=0;i<FullGenry.length;i++){
         props.genre_ids.forEach(id =>{
                 if (FullGenry[i].id === id){
                     full.push(FullGenry[i].name)
