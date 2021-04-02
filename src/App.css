@@ -101,11 +101,11 @@ input::placeholder{
     width: 174.8px;
     background: white;
     border: 2px solid silver;
-    color: silver;
+    color: silver;;
 }
 
 .buttonAdd:hover{
-    border: 2px solid white;
+    border: none;
     color: white;
     background-color: silver;
 }
@@ -229,5 +229,13 @@ input::placeholder{
 .chosen p {
     font-size: 20px;
     font-family: Ebrima;
+}
+
+
+
+.btndiv {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 

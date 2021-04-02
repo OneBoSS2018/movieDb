@@ -9,10 +9,8 @@ export default function  ChosenButton( {item, chosen, setChosen}){
         }])
     }
     return (
-        <div>
                 <button className='buttonAdd'  type={"button"} disabled={false} onClick={Adder}>
                     Add
                 </button>
-        </div>
     )
 }

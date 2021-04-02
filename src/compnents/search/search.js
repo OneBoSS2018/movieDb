@@ -53,9 +53,9 @@ export  default function SearchMovie({recom, setRecom}) {
                                                         </>
                                                     ) }
                                             </Link>
-                                            {recom.length === 0  ? (< ChosenButton  item={m} chosen={recom} setChosen={setRecom} /> ): (
+                                            {recom.length === 0  ? (<div className='btndiv' >  < ChosenButton  item={m} chosen={recom} setChosen={setRecom} /> </div> ): (
                                                 ( recom.some(obj => obj.id === m.id) )    ? (<h3>Movie Added</h3>) : (
-                                                    < ChosenButton item={m} chosen={recom} setChosen={setRecom}/>)
+                                                    <div className='btndiv' >   < ChosenButton item={m} chosen={recom} setChosen={setRecom}/> </div>)
                                             )}
                                     </div>
                                     )

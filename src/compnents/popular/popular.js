@@ -27,7 +27,6 @@ export function CurrentGenre(props) {
 }
 
 
-
 export  default function Popular({recom, setRecom}){
     const [popular, setPopular] = useState([])
     const [count, setCount] = useState(1);
@@ -55,9 +54,9 @@ export  default function Popular({recom, setRecom}){
                                              < FilmMainCard title={p.title} poster_path={p.poster_path}/>
                                              < CurrentGenre genre_ids={p.genre_ids} />
                                          </Link>
-                                         {recom.length === 0  ? (< ChosenButton  item={p} chosen={recom} setChosen={setRecom} /> ): (
+                                         {recom.length === 0  ? (<div className='btndiv'> < ChosenButton  item={p} chosen={recom} setChosen={setRecom} /> </div>): (
                                              ( recom.some(obj => obj.id === p.id) )    ? (<h3>Movie Added</h3>) : (
-                                                 < ChosenButton item={p} chosen={recom} setChosen={setRecom}/>)
+                                                 <div className='btndiv'>< ChosenButton  item={p} chosen={recom} setChosen={setRecom}/></div>)
                                          )}
                                      </div>
                              )}
