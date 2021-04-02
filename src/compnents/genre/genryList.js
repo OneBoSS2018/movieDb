@@ -2,7 +2,7 @@ import  {useEffect,useState} from "react";
 
 
 export  const GenreList = () =>{
-     const [list, setlist] = useState({})
+     const [list, setlist] = useState([])
      useEffect(()=>{
          fetch(`http://api.themoviedb.org/3/genre/movie/list?api_key=884fb462c33685921cb1b2e54ca679f7`)
              .then(res => res.json())
