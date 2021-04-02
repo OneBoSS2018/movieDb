@@ -39,7 +39,6 @@ export  default function Popular({recom, setRecom}){
             .then(res => {
                 setPopular(res.results)
             })
-            .catch(error => console.log(error))
     }, [count])
 
 

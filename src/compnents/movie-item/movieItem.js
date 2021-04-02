@@ -12,7 +12,6 @@ function SimilarMovie(id){
              .then(res => {
                  setIde(res)
              })
-             .catch(error => console.log(error))
      }, [id])
     return ide.results
 }
@@ -32,7 +31,6 @@ export  default function MovieItem({ide, rec, setRec}){
             .then(res => {
                 setItem(res.results[0])
             })
-            .catch(error => console.log(error))
     }, [ide])
 
     let arr = SimilarMovie(item.id)
