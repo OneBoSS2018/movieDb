@@ -2,29 +2,15 @@ import React, {useEffect, useState} from "react"
 import Pagination from "../pagination/pagination";
 import FilmMainCard from "./popularFilm";
 import {Link} from "react-router-dom";
-import {GenreList} from "../genre/genryList";
 import ChosenButton from "../chosen/chosenButton";
 import '../../App.css'
+import CurrentGenre from "../genre/genryList";
 
 
 
 export const apiKey = '884fb462c33685921cb1b2e54ca679f7'
 
-export function CurrentGenre(props) {
-    const FullGenry = GenreList()
-    let full = []
 
-   for(let i=0;i<FullGenry.length;i++){
-        props.genre_ids.forEach(id =>{
-                if (FullGenry[i].id === id){
-                    full.push(FullGenry[i].name)
-                    full.push('; ')
-                }
-            })
-        }
-
-    return full
-}
 
 
 export  default function Popular({recom, setRecom}){
@@ -33,11 +19,19 @@ export  default function Popular({recom, setRecom}){
 
 
     useEffect(()=> {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${count}`)
-            .then(res => res.json())
-            .then(res => {
-                setPopular(res.results)
-            })
+        let isF = false
+        try {
+            fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&page=${count}`)
+                .then(res => res.json())
+                .then(res => {
+                    if (!isF) {setPopular(res.results)}
+                })
+        }catch (e){
+            console.log(e)
+        }
+        return ( ) => {
+            isF = true
+        }
     }, [count])
 
 
@@ -47,15 +41,16 @@ export  default function Popular({recom, setRecom}){
                 (
                  <div>
                      <div className='wrapper'>
+                         <h1>Popular</h1>
                          <div className='box'>
                              {popular.map( (p) =>
-                                     <div id='item'>
+                                     <div id='item' key={p.id.toString()} >
                                          <Link to={`/${p.title.split('%').join()}`} key={p.id}>
                                              < FilmMainCard title={p.title} poster_path={p.poster_path}/>
-                                             < CurrentGenre genre_ids={p.genre_ids} />
+                                             { p.genre_ids === null ? (<p>loading...</p> ): (<div className='currentG'><strong>Genres:</strong>< CurrentGenre genre_ids={p.genre_ids} /></div>)}
                                          </Link>
                                          {recom.length === 0  ? (<div className='btndiv'> < ChosenButton  item={p} chosen={recom} setChosen={setRecom} /> </div>): (
-                                             ( recom.some(obj => obj.id === p.id) )    ? (<h3>Movie Added</h3>) : (
+                                             ( recom.some(obj => obj.id === p.id) )    ? (<div className='btndiv'> <button disabled={true} className='buttonAddR' >movie added</button> </div>) : (
                                                  <div className='btndiv'>< ChosenButton  item={p} chosen={recom} setChosen={setRecom}/></div>)
                                          )}
                                      </div>

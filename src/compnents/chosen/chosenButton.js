@@ -5,7 +5,8 @@ export default function  ChosenButton( {item, chosen, setChosen}){
         e.preventDefault()
         setChosen([...chosen, {
             id: item.id,
-            title: item.title
+            title: item.title,
+            url: item.poster_path
         }])
     }
     return (
