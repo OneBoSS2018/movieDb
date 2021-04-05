@@ -68,6 +68,7 @@ a {
     left: 0;
     right: 0;
     background-color: silver;
+    opacity: 90%;
     transition: 0.4s ease-in;
     transform: translateX(100%);
 }
