@@ -46,7 +46,7 @@ export  default function SearchMovie({recom, setRecom}) {
                                 {
                                     movie.map(m =>
                                         <div id='item' key={m.id.toString()}>
-                                            <Link to={`/${m.title.split(':').join()}`} >
+                                            <Link to={`/${m.id}`} >
                                                 < SearchItem title={m.title} poster_path={m.poster_path} genre_ids={m.genre_ids}/>
                                                 {m.genre_ids.length === 0 || m.genre_ids.length === undefined ?
                                                     (<strong>Genders: no genre.</strong>) : (<div className='currentG'><strong>Genres:</strong>< CurrentGenre genre_ids={m.genre_ids} /></div>

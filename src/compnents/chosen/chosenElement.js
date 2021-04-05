@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 
 
-export default function ChosenElement({title, list, setList, l, url}){
+export default function ChosenElement({id, title, list, setList, l, url}){
     const deleteListElement = () => {
         setList(list.filter(element => element.id !== l.id ))
     }
@@ -12,7 +12,7 @@ export default function ChosenElement({title, list, setList, l, url}){
         <div className='menu__item'>
             {url !== null ? (<img width='50px' height='50px' alt='' src={`https://www.themoviedb.org/t/p/original${url}`} />
             ) : (<p>no poster</p>)}
-            <Link to={`/${title.split('%').join()}`} >
+            <Link to={`/${id}`} >
                 <li className='li-hover'>{title}</li>
             </Link>
             <button className='buttonAdd' type={"button"} onClick={deleteListElement}>

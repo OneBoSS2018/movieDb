@@ -4,7 +4,6 @@ import {apiKey} from "../popular/popular";
 import ChosenButton from "../chosen/chosenButton";
 import '../../App.css'
 import SimilarMovie from "../similar-movie/silarMovie";
-import CurrentGenre from "../genre/genryList";
 
 
 
@@ -17,10 +16,10 @@ export  default function MovieItem({ide, rec, setRec}){
     };
     const  [item, setItem] = useState({})
     useEffect(() =>{
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${ide.params.id}&api_key=${apiKey}`)
+        fetch(`https://api.themoviedb.org/3/movie/${ide.params.id}?api_key=${apiKey}`)
             .then(res => res.json())
             .then(res => {
-                setItem(res.results[0])
+                setItem(res)
             })
     }, [ide])
     const checkUserid = obj => obj.id === item.id;
@@ -35,9 +34,10 @@ export  default function MovieItem({ide, rec, setRec}){
                                 < ChosenButton item={item} chosen={rec} setChosen={setRec}/>)
                         )}
                     </div>
-                    <div>
+                    <div className='infoSecDiv'>
                         <h1>{item.title}</h1>
                         <strong>Data:</strong>{item.release_date}
+                        <h5>Budget: {item.budget}$</h5>
                         <h5>Points: 10/{item.vote_average}</h5>
                         <p>{item.overview}</p>
                             <div>
@@ -46,7 +46,7 @@ export  default function MovieItem({ide, rec, setRec}){
                             </div>
                         {item.id === undefined ? (<h1>Loading</h1> ) : (
                             <div>
-                                < CurrentGenre genre_ids={item.genre_ids} />
+                                {item.genres.length === 0 ?  (<p>no genres</p>) : (item.genres.map(g => <li key={g.id}>{g.name} </li>  ))}
                                 < SimilarMovie id={item.id} />
                             </div> )}
                     </div>

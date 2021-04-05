@@ -45,7 +45,7 @@ export  default function Popular({recom, setRecom}){
                          <div className='box'>
                              {popular.map( (p) =>
                                      <div id='item' key={p.id.toString()} >
-                                         <Link to={`/${p.title.split('%').join()}`} key={p.id}>
+                                         <Link to={`/${p.id}`} key={p.id.toString()}>
                                              < FilmMainCard title={p.title} poster_path={p.poster_path}/>
                                              { p.genre_ids === null ? (<p>loading...</p> ): (<div className='currentG'><strong>Genres:</strong>< CurrentGenre genre_ids={p.genre_ids} /></div>)}
                                          </Link>

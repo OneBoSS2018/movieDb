@@ -151,7 +151,7 @@ input::placeholder{
     width: 1000px;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    height: 600px;
     margin: auto;
     border-radius: 5px;
     padding-bottom: 60px;
@@ -316,6 +316,7 @@ input::placeholder{
     top: 0;
     left: 300px;
     right: 0;
+    transition: 0.3s ease-in;
 }
 
 .menu__item button{
@@ -390,4 +391,13 @@ input::placeholder{
     right: 0;
 }
 
+.menu__item img:hover{
+    width: 100px;
+    height: 100px;
+    top: -25px;
+}
 
+.infoSecDiv{
+    position: relative;
+    top: 35px;
+}

@@ -20,7 +20,7 @@ export default function ChosenList({chosen, setChosen}){
             <div className='menu__box'>
                 <h1 className='menu_h1'>Chosen library</h1>
                     {chosen.map(
-                        l => < ChosenElement key={l.id} list={chosen} setList={setChosen} l={l} title={l.title} url={l.url} genre={l.genre}/>
+                        l => < ChosenElement id={l.id} key={l.id} list={chosen} setList={setChosen} l={l} title={l.title} url={l.url} genre={l.genre}/>
                     )}
             </div>
             </div>

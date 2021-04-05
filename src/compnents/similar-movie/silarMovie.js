@@ -16,7 +16,7 @@ export  default function SimilarMovie({id}){
             {( ide !== undefined) ? (<div>
                 {(ide.length === 0) ? (<h1>No similar movie</h1>) : (<h1> Similar movie</h1>)}
                 {ide.map(p =>
-                    <Link to={`/${p.title.split('%').join()}`} key={p.id}>
+                    <Link to={`/${p.id}`} key={p.id}>
                         <li className='li-hover'>{p.title}</li>
                     </Link>
             )}
